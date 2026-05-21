@@ -1,6 +1,6 @@
 {
 	"name": "@ambar-ui/svelte",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Beautiful Svelte 5 component library powered by Tailwind CSS v4",
 	"license": "MIT",
 	"author": "Ambar UI",
