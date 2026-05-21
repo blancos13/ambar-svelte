@@ -44,7 +44,7 @@
 <Link href="/continue" variant="button" icon={ICONS.arrow} iconSide="right">Continue</Link>
 
 <!-- External button -->
-<Link href="https://github.com" variant="button" external>GitHub</Link>
+<Link href="https://github.com/blancos13/ambar-svelte" variant="button" external>GitHub</Link>
 
 <!-- Icon-only -->
 <Link href="/search" variant="icon" icon={ICONS.search} ariaLabel="Search" />`;
@@ -171,7 +171,7 @@
 			<Link href="#" variant="pill" icon={ICONS.user}>Profile</Link>
 			<Link href="#" variant="pill" size="sm">Small pill</Link>
 			<Link href="#" variant="button" icon={ICONS.arrow} iconSide="right">Continue</Link>
-			<Link href="https://github.com" variant="button" external>GitHub</Link>
+			<Link href="https://github.com/blancos13/ambar-svelte" variant="button" external>GitHub</Link>
 			<Link href="#" variant="icon" icon={ICONS.search} ariaLabel="Search" />
 		</div>
 	</div>
@@ -195,7 +195,7 @@
 	<h2 class="doc-section-title">External Links</h2>
 	<p class="doc-section-desc">Pass <code>external</code> to open in a new tab. An arrow icon is appended automatically.</p>
 	<div class="preview-box">
-		<Link href="https://github.com" variant="button" external>GitHub</Link>
+		<Link href="https://github.com/blancos13/ambar-svelte" variant="button" external>GitHub</Link>
 		<Link href="https://svelte.dev" variant="accent" external>Svelte docs</Link>
 	</div>
 	<CodeBlock code={externalCode} lang="svelte" />

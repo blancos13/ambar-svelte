@@ -122,7 +122,8 @@
 <svelte:window onkeydown={onWindowKey} />
 
 <svelte:head>
-	<title>Ambar UI — Svelte 5 Component Library</title>
+	<title>Ambar UI — Svelte 5 Components with Tailwind CSS v4</title>
+	<meta name="description" content="45+ open-source Svelte 5 UI components: charts, sidebar, dialog, inputs and more. Built with Tailwind CSS v4. Copy-paste or npm install @ambar-ui/svelte." />
 </svelte:head>
 
 <!-- ── Top Navbar ── -->
