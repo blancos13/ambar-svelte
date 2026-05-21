@@ -3,6 +3,9 @@
 	import { onMount, tick } from 'svelte';
 	import { page }       from '$app/stores';
 	import { themeStore } from '$lib/stores/theme.svelte';
+	import { dev }        from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	import Settings from '$lib/components/Settings.svelte';
 	import Sheet    from '$lib/components/Sheet.svelte';
 	import Toast    from '$lib/components/Toast.svelte';
