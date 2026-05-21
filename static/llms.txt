@@ -1,0 +1,621 @@
+# Ambar UI — Component Library Reference for LLMs
+
+Ambar UI is a copy-paste component library for **Svelte 5** + **Tailwind CSS v4**.
+All components are single `.svelte` files with no runtime npm dependencies.
+Import from `$lib/components/ComponentName.svelte`.
+
+---
+
+## Setup
+
+```svelte
+<!-- app.css — theme tokens via CSS variables -->
+@theme inline {
+  --color-accent: oklch(0.6 0.2 265);
+}
+```
+
+---
+
+## Components
+
+### Button
+```svelte
+import Button from '$lib/components/Button.svelte';
+
+<Button>Click me</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="danger">Delete</Button>
+<Button size="sm">Small</Button>
+<Button size="lg">Large</Button>
+<Button loading>Saving...</Button>
+<Button disabled>Disabled</Button>
+<Button href="/path">Link button</Button>
+<Button variant="icon" ariaLabel="Like"><svg .../></Button>
+```
+Props: `variant` (primary|secondary|outline|ghost|danger|icon), `size` (sm|md|lg|icon), `href`, `external`, `disabled`, `loading`, `fullWidth`, `ariaLabel`, `onclick`, `class`
+
+---
+
+### Input
+```svelte
+import Input from '$lib/components/Input.svelte';
+
+<Input bind:value={email} label="Email" type="email" />
+<Input bind:value={pass} label="Password" type="password" />
+<Input bind:value={q} placeholder="Search..." clearable />
+<Input bind:value={price} label="Price" suffix="USD" />
+<Input bind:value={url} label="Website" prefix="https://" />
+<Input label="Username" error="Already taken" />
+<Input label="Bio" hint="Max 160 characters" />
+```
+Props: `value` ($bindable), `type` (text|email|password|search|url|tel|number), `label`, `placeholder`, `hint`, `error`, `disabled`, `clearable`, `prefix`, `suffix`, `start` (Snippet), `end` (Snippet), `onvalue`
+
+---
+
+### Textarea
+```svelte
+import Textarea from '$lib/components/Textarea.svelte';
+
+<Textarea bind:value={bio} label="Bio" rows={4} />
+<Textarea bind:value={msg} label="Message" maxLength={500} showCount />
+<Textarea bind:value={desc} autoResize />
+```
+Props: `value` ($bindable), `label`, `placeholder`, `hint`, `error`, `rows`, `maxLength`, `showCount`, `autoResize`, `disabled`
+
+---
+
+### Select
+```svelte
+import Select from '$lib/components/Select.svelte';
+
+const options = [
+  { value: 'admin', label: 'Admin' },
+  { value: 'user',  label: 'User'  },
+];
+
+// With groups:
+const grouped = [
+  { group: 'Entertainment', options: [{ value: 'music', label: 'Music', icon: '🎵' }] },
+];
+
+<Select bind:value={role} label="Role" {options} />
+<Select bind:value={cat}  label="Category" options={grouped} />
+<Select bind:value={lang} label="Language" {options} searchable />
+<Select bind:value={role} label="Role" {options} error="Required" />
+<Select bind:value={lang} {options} disabled />
+```
+Props: `value` ($bindable), `options` (Option[]|OptionGroup[]), `label`, `placeholder`, `hint`, `error`, `disabled`, `searchable`, `animation` (slide|scale|elastic|fade|flip)
+
+---
+
+### Checkbox
+```svelte
+import Checkbox from '$lib/components/Checkbox.svelte';
+
+<Checkbox bind:checked={agreed} label="I agree to terms" />
+<Checkbox bind:checked={notify} label="Notifications" hint="Get email updates" />
+<Checkbox bind:checked={val} label="Indeterminate" indeterminate />
+<Checkbox bind:checked={val} label="Disabled" disabled />
+```
+Props: `checked` ($bindable), `label`, `hint`, `disabled`, `indeterminate`, `onchange`
+
+---
+
+### Switch
+```svelte
+import Switch from '$lib/components/Switch.svelte';
+
+<Switch bind:checked={enabled} label="Dark mode" />
+<Switch bind:checked={push} label="Push notifications" hint="Sent to your device" />
+<Switch bind:checked={val} size="sm" />
+<Switch bind:checked={val} size="lg" />
+<Switch bind:checked={val} disabled />
+```
+Props: `checked` ($bindable), `label`, `hint`, `size` (sm|md|lg), `disabled`, `onchange`
+
+---
+
+### Radio / RadioGroup
+```svelte
+import Radio from '$lib/components/Radio.svelte';
+
+let plan = $state('free');
+
+<Radio value="free"    bind:group={plan} label="Free"    hint="5 projects" />
+<Radio value="pro"     bind:group={plan} label="Pro"     hint="$9/mo"      />
+<Radio value="business" bind:group={plan} label="Business" disabled />
+```
+Props: `value`, `group` ($bindable), `label`, `hint`, `disabled`, `onchange`
+
+---
+
+### Slider
+```svelte
+import Slider from '$lib/components/Slider.svelte';
+
+<Slider bind:value={vol}  label="Volume"   min={0} max={100} />
+<Slider bind:value={temp} label="Temperature" min={-20} max={50} step={0.5} />
+<Slider bind:value={val}  animation="spring" />
+<Slider bind:value={val}  showValue={false} />
+```
+Props: `value` ($bindable), `min`, `max`, `step`, `label`, `hint`, `showValue`, `disabled`, `animation` (none|smooth|spring|elastic|bounce|snappy), `onchange`
+
+---
+
+### OTP Input
+```svelte
+import OtpInput from '$lib/components/OtpInput.svelte';
+
+<OtpInput bind:value={code} onComplete={(v) => verify(v)} />
+<OtpInput bind:value={code} length={4} />
+<OtpInput bind:value={code} error="Invalid code" />
+```
+Props: `value` ($bindable), `length` (default 6), `error`, `disabled`, `onComplete`
+
+---
+
+### Search
+```svelte
+import Search from '$lib/components/Search.svelte';
+
+const items = [
+  { id: 1, label: 'Dashboard', category: 'Pages' },
+  { id: 2, label: 'Settings',  category: 'Pages' },
+];
+
+<Search bind:value={q} {items} placeholder="Search..." />
+<Search bind:value={q} {items} command shortcut="⌘K" />
+<Search bind:value={q} {items} loading={searching} />
+```
+Props: `value` ($bindable), `placeholder`, `size` (sm|md|lg), `items` (SearchItem[]), `loading`, `debounce`, `command`, `shortcut`, `expandable`, `onSearch`
+
+---
+
+### Accordion
+```svelte
+import Accordion from '$lib/components/Accordion.svelte';
+
+const items = [
+  {
+    value: 'q1',
+    title: 'What is Ambar UI?',
+    children: mySnippet,   // Svelte snippet
+  },
+];
+
+<Accordion {items} />
+<Accordion {items} variant="card" multiple />
+<Accordion {items} variant="flush" />
+<Accordion {items} animation="spring" defaultOpen={['q1']} />
+```
+Props: `items` (Item[]), `multiple`, `variant` (default|card|flush), `animation` (smooth|spring|snappy|elastic|bounce), `defaultOpen`
+Item type: `{ value, title, hint?, icon?: Snippet, disabled?, children: Snippet }`
+
+---
+
+### Tabs
+```svelte
+import Tabs from '$lib/components/Tabs.svelte';
+
+const tabs = [
+  { value: 'overview', label: 'Overview' },
+  { value: 'analytics', label: 'Analytics' },
+  { value: 'settings', label: 'Settings', disabled: true },
+];
+
+<Tabs bind:value={activeTab} {tabs} />
+```
+Props: `value` ($bindable), `tabs` (Tab[]), `variant`, `animation`
+
+---
+
+### Dialog
+```svelte
+import Dialog from '$lib/components/Dialog.svelte';
+
+let open = $state(false);
+
+<button onclick={() => open = true}>Open</button>
+
+<Dialog {open} onClose={() => open = false}>
+  <h3>Title</h3>
+  <p>Content...</p>
+  <button onclick={() => open = false}>Close</button>
+</Dialog>
+
+<!-- With variant -->
+<Dialog {open} onClose={() => open = false} variant="elastic">...</Dialog>
+<Dialog {open} onClose={() => open = false} variant="bottom-sheet">...</Dialog>
+```
+Props: `open`, `onClose`, `children` (Snippet), `variant` (center|elastic|flip|rotate|zoom|slide-left|slide-right|fade-up|newspaper|swing|morph|alert|bottom-sheet|shrink|dropdown|fullscreen)
+
+---
+
+### Drawer
+```svelte
+import Drawer from '$lib/components/Drawer.svelte';
+
+let open = $state(false);
+
+<Drawer {open} onClose={() => open = false} title="Settings">
+  Content here
+</Drawer>
+
+<Drawer {open} onClose={() => open = false} side="left" size="lg" title="Menu">
+  Nav content
+</Drawer>
+```
+Props: `open`, `onClose`, `side` (right|left|top|bottom), `size` (sm|md|lg|xl|full), `title`, `children` (Snippet), `footer` (Snippet)
+
+---
+
+### Sheet (Bottom Sheet)
+```svelte
+import Sheet from '$lib/components/Sheet.svelte';
+
+let open = $state(false);
+
+<Sheet {open} onClose={() => open = false} title="Share">
+  Content
+</Sheet>
+```
+Props: `open`, `onClose`, `title`, `size` (sm|md|lg|xl), `children` (Snippet), `footer` (Snippet)
+
+---
+
+### Dropdown
+```svelte
+import Dropdown from '$lib/components/Dropdown.svelte';
+
+const items = [
+  { label: 'Edit',   onclick: () => edit()   },
+  { label: 'Share',  onclick: () => share()  },
+  { type: 'divider' },
+  { label: 'Delete', danger: true, onclick: () => del() },
+];
+
+<Dropdown {items} placement="bottom-start">
+  {#snippet trigger({ toggle })}
+    <Button onclick={toggle}>Options</Button>
+  {/snippet}
+</Dropdown>
+```
+Props: `items` (DropdownItem[]), `placement`, `animation` (scale|slide|elastic|bounce|zoom), `offset`, `trigger` (Snippet)
+DropdownItem: `{ type?: 'item'|'divider'|'label', label?, icon?: Snippet, shortcut?, hint?, danger?, disabled?, onclick? }`
+
+---
+
+### Popover
+```svelte
+import Popover from '$lib/components/Popover.svelte';
+
+<Popover placement="bottom">
+  {#snippet trigger({ toggle })}
+    <Button onclick={toggle}>Open</Button>
+  {/snippet}
+  <div>Popover content</div>
+</Popover>
+```
+Props: `open` ($bindable), `placement` (top|bottom|left|right|top-start|top-end|bottom-start|bottom-end), `offset`, `arrow`, `animation` (scale|slide|elastic|flip|bounce|zoom), `trigger` (Snippet), `children` (Snippet)
+
+---
+
+### Tooltip
+```svelte
+import Tooltip from '$lib/components/Tooltip.svelte';
+
+<Tooltip content="Save file">
+  <Button variant="icon" ariaLabel="Save"><svg .../></Button>
+</Tooltip>
+
+<Tooltip content="Takes 2–3 business days" placement="right" delay={200}>
+  <span>Shipping info</span>
+</Tooltip>
+```
+Props: `content` (string|Snippet), `placement`, `delay` (300), `offset` (8), `disabled`, `children` (Snippet)
+
+---
+
+### Toast
+```svelte
+import { toastStore } from '$lib/stores/toast.svelte';
+import Toast from '$lib/components/Toast.svelte';
+
+// In root layout — renders the toast container:
+<Toast />
+
+// Anywhere in the app — trigger toasts:
+toastStore.show('Saved!', 'success');
+toastStore.show('Something went wrong', 'error');
+toastStore.show('New message', 'info');
+toastStore.show('Low storage', 'warning');
+```
+
+---
+
+### Avatar
+```svelte
+import Avatar      from '$lib/components/Avatar.svelte';
+import AvatarGroup from '$lib/components/AvatarGroup.svelte';
+
+<Avatar src="/photo.jpg" name="John Doe" />
+<Avatar name="Jane Smith" size="lg" />
+<Avatar size="md" shape="square" status="online" />
+<AvatarGroup avatars={users} max={5} size="sm" />
+```
+Props (Avatar): `src`, `name`, `size` (xs|sm|md|lg|xl|2xl), `shape` (circle|square), `status` (online|away|busy|offline|none), `class`
+
+---
+
+### Progress
+```svelte
+import Progress from '$lib/components/Progress.svelte';
+
+<Progress value={72} />
+<Progress value={45} variant="success" />
+<Progress value={30} variant="danger" size="lg" showValue />
+<Progress indeterminate />
+<Progress value={60} striped animation="spring" />
+```
+Props: `value`, `max` (100), `size` (xs|sm|md|lg), `variant` (accent|success|warning|danger|info), `animation` (smooth|spring|bounce|none), `striped`, `indeterminate`, `label`, `showValue`
+
+---
+
+### Spinner
+```svelte
+import Spinner from '$lib/components/Spinner.svelte';
+
+<Spinner />
+<Spinner variant="dots" size="lg" />
+<Spinner variant="ring-dual" color="var(--accent)" />
+
+<!-- Inside a button -->
+<Button disabled={loading}>
+  {#if loading}<Spinner size="xs" color="currentColor" />{/if}
+  Save
+</Button>
+```
+Props: `variant` (ring|ring-dual|ring-split|ring-track|dots|bounce|pulse|bars|wave|ripple|orbit), `size` (xs|sm|md|lg|xl), `color`
+
+---
+
+### Skeleton
+```svelte
+import Skeleton from '$lib/components/Skeleton.svelte';
+
+<Skeleton />                            <!-- text lines (default) -->
+<Skeleton shape="circle" width="3rem" height="3rem" />
+<Skeleton shape="rect" width="100%" height="12rem" radius="0.75rem" />
+<Skeleton animation="pulse" lines={2} />
+```
+Props: `shape` (rect|circle|text), `animation` (shimmer|pulse|wave|blink|glow|none), `width`, `height`, `radius`, `lines`, `delay`, `class`
+
+---
+
+### Link
+```svelte
+import Link from '$lib/components/Link.svelte';
+
+<Link href="/page">Default underline</Link>
+<Link href="/page" variant="pill">Pill link</Link>
+<Link href="/page" variant="button">Button-style</Link>
+<Link href="https://ext.com" external>External</Link>
+<Link href="/page" variant="mark" motion="highlight">Highlight on hover</Link>
+```
+Props: `href`, `variant` (inline|accent|muted|underline|double|dotted|dashed|wavy|overline|over-under|strike|strike-soft|mark|reveal|pill|button|icon), `size`, `external`, `motion` (none|line|scan|dash|pulse|glint|highlight)
+
+---
+
+### Like (Heart Button)
+```svelte
+import Like from '$lib/components/Like.svelte';
+
+<Like bind:liked bind:count={likeCount} />
+<Like bind:liked size="lg" showCount={false} />
+<Like bind:liked onchange={(v) => updateLike(v)} />
+```
+Props: `liked` ($bindable), `count` ($bindable), `showCount`, `size` (sm|md|lg), `onchange`
+
+---
+
+### Breadcrumb
+```svelte
+import Breadcrumb from '$lib/components/Breadcrumb.svelte';
+
+const items = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Sneakers' },
+];
+
+<Breadcrumb {items} />
+<Breadcrumb {items} separator="slash" itemStyle="pill" />
+<Breadcrumb {items} maxVisible={3} />
+```
+Props: `items` (BreadcrumbItem[]), `separator` (slash|chevron|dot|arrow), `size` (sm|md|lg), `itemStyle` (plain|soft|pill), `maxVisible`
+
+---
+
+### List
+```svelte
+import List from '$lib/components/List.svelte';
+
+const items = [
+  { id: '1', label: 'Item one', description: 'Description' },
+  { id: '2', label: 'Item two' },
+];
+
+<List {items} onselect={(item) => console.log(item)} />
+<List {items} variant="card" density="roomy" />
+<List {items} columns={2} animated />
+```
+Props: `items` (ListItem[]), `variant` (default|soft|card), `density` (compact|default|roomy), `columns` (1|2|3|4), `animated`, `onselect`
+
+---
+
+### Empty State
+```svelte
+import EmptyState from '$lib/components/EmptyState.svelte';
+
+<EmptyState preset="inbox" title="No messages" description="You're all caught up." />
+<EmptyState preset="search" title="No results" action={{ label: 'Clear filters', onclick: clear }} />
+<EmptyState preset="error" title="Something went wrong" size="lg" />
+```
+Props: `preset` (inbox|search|data|folder|users|error|custom), `title`, `description`, `action` ({label, onclick}), `size` (sm|md|lg), `icon` (Snippet)
+
+---
+
+### Sidebar
+```svelte
+import Sidebar from '$lib/components/Sidebar.svelte';
+
+const sections = [
+  {
+    title: 'Main',
+    items: [
+      { id: 'home',     label: 'Home',     icon: 'M3 9l9-7 9 7v11a2...' },
+      { id: 'analytics',label: 'Analytics',icon: 'M18 20V10M12 20V4...'  },
+    ],
+  },
+];
+
+let active = $state('home');
+
+<Sidebar {sections} bind:active onselect={(id) => navigate(id)} />
+<Sidebar {sections} bind:active itemStyle="filled" />
+<Sidebar {sections} bind:active collapsible="icon" bind:collapsed />
+```
+Props: `sections` (NavSection[]), `active` ($bindable), `collapsed` ($bindable), `open` ($bindable), `width`, `variant` (default|floating|inset), `itemStyle` (default|filled|outline|ghost), `activeIndicator` (bar|track|none), `animation`, `collapsible` (icon|offcanvas|none), `header` (Snippet), `footer` (Snippet), `onselect`
+
+---
+
+### Layout Primitives (Flex / Grid / HStack / VStack / Spacer)
+```svelte
+import Flex   from '$lib/components/Flex.svelte';
+import Grid   from '$lib/components/Grid.svelte';
+import HStack from '$lib/components/HStack.svelte';
+import VStack from '$lib/components/VStack.svelte';
+import Spacer from '$lib/components/Spacer.svelte';
+
+<!-- Horizontal row -->
+<HStack gap={3}>
+  <Avatar name="Jane" />
+  <VStack gap={0.5}>
+    <span>Jane Doe</span>
+    <span>Admin</span>
+  </VStack>
+  <Spacer />
+  <Button size="sm">Follow</Button>
+</HStack>
+
+<!-- Grid -->
+<Grid cols={3} gap={4}>
+  <Card /><Card /><Card />
+</Grid>
+
+<!-- Full flex control -->
+<Flex direction="row" justify="between" align="center" gap={2} wrap>
+  ...
+</Flex>
+```
+
+---
+
+### Charts
+
+#### BarChart
+```svelte
+import BarChart from '$lib/components/BarChart.svelte';
+const labels = ['Jan','Feb','Mar'];
+const series = [{ label: 'Sales', data: [42, 58, 73] }];
+<BarChart {labels} {series} />
+<BarChart {labels} {series} stacked height={300} />
+```
+Props: `labels`, `series` (BarSeries[]), `height` (260), `grid`, `stacked`, `class`
+
+#### LineChart
+```svelte
+import LineChart from '$lib/components/LineChart.svelte';
+const series = [{ label: 'Views', data: [1200,1900,1500], area: true }];
+<LineChart {labels} {series} smooth />
+```
+Props: `labels`, `series` (LineSeries[]), `height` (260), `smooth` (true), `grid`, `class`
+
+#### DonutChart
+```svelte
+import DonutChart from '$lib/components/DonutChart.svelte';
+const slices = [{ label: 'A', value: 40 }, { label: 'B', value: 60 }];
+<DonutChart {slices} centerLabel="Total" centerValue="100" />
+```
+Props: `slices` (DonutSlice[]), `size` (220), `thickness` (44), `centerLabel`, `centerValue`, `class`
+
+#### Sparkline
+```svelte
+import Sparkline from '$lib/components/Sparkline.svelte';
+<Sparkline data={[10,25,15,40,30,55]} width={80} height={32} />
+<Sparkline data={vals} area={false} value minmax />
+```
+Props: `data: number[]`, `width`, `height`, `color`, `area`, `value`, `minmax`, `class`
+
+#### HeatMap
+```svelte
+import HeatMap from '$lib/components/HeatMap.svelte';
+// data: Record<'YYYY-MM-DD', number>
+<HeatMap {data} label="contributions" color="#60a5fa" />
+```
+Props: `data`, `label`, `color`, `cellSize` (12), `gap` (3), `class`
+
+#### CandlestickChart
+```svelte
+import CandlestickChart from '$lib/components/CandlestickChart.svelte';
+// candles: Candle[] — { date, open, high, low, close, volume? }
+<CandlestickChart {candles} volume grid height={320} />
+```
+
+#### RealtimeLineChart
+```svelte
+import RealtimeLineChart from '$lib/components/RealtimeLineChart.svelte';
+<RealtimeLineChart label="BTC/USD" initialPrice={42000} tickMs={350} />
+```
+
+#### GlobeChart
+```svelte
+import GlobeChart from '$lib/components/GlobeChart.svelte';
+// data: Record<ISO2CountryCode, number>
+<GlobeChart data={{ US: 1000, TR: 500 }} autoRotate />
+```
+
+---
+
+## Theme Variables Reference
+
+```css
+--background        /* page background        */
+--foreground        /* primary text           */
+--card              /* card / panel bg        */
+--muted             /* subtle bg, code blocks */
+--muted-foreground  /* secondary text         */
+--border            /* borders                */
+--accent            /* brand / interactive    */
+--accent-foreground /* text on accent bg      */
+--secondary         /* hover / chip bg        */
+--destructive       /* error red              */
+```
+
+Dark mode: add `html.dark` class to `<html>`.
+Toggle: `themeStore.toggleMode()` from `$lib/stores/theme.svelte`.
+
+---
+
+## File Structure
+
+```
+src/lib/components/   ← all component .svelte files
+src/lib/stores/
+  theme.svelte        ← themeStore (mode, accent, font)
+  toast.svelte        ← toastStore (show, dismiss)
+src/app.css           ← @theme inline, global styles
+```

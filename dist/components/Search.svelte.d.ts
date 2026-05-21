@@ -1,0 +1,30 @@
+import type { Snippet } from 'svelte';
+export type SearchItem = {
+    id: string | number;
+    label: string;
+    description?: string;
+    category?: string;
+    icon?: Snippet;
+    badge?: string;
+    href?: string;
+};
+type Size = 'sm' | 'md' | 'lg';
+type Props = {
+    value?: string;
+    placeholder?: string;
+    size?: Size;
+    items?: SearchItem[];
+    loading?: boolean;
+    debounce?: number;
+    maxRecent?: number;
+    recentKey?: string;
+    command?: boolean;
+    shortcut?: string;
+    emptyText?: string;
+    expandable?: boolean;
+    onSearch?: (q: string) => void;
+    onSelect?: (item: SearchItem) => void;
+};
+declare const Search: import("svelte").Component<Props, {}, "value">;
+type Search = ReturnType<typeof Search>;
+export default Search;

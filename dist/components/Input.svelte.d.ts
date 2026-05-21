@@ -1,0 +1,20 @@
+import type { Snippet } from 'svelte';
+type Props = {
+    value?: string;
+    type?: 'text' | 'email' | 'password' | 'search' | 'url' | 'tel' | 'number';
+    label?: string;
+    placeholder?: string;
+    hint?: string;
+    error?: string;
+    disabled?: boolean;
+    clearable?: boolean;
+    prefix?: string;
+    suffix?: string;
+    start?: Snippet;
+    end?: Snippet;
+    onvalue?: (v: string) => void;
+    [key: string]: any;
+};
+declare const Input: import("svelte").Component<Props, {}, "value">;
+type Input = ReturnType<typeof Input>;
+export default Input;

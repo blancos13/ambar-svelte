@@ -1,0 +1,22 @@
+import type { Snippet } from 'svelte';
+type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'icon';
+type Size = 'sm' | 'md' | 'lg' | 'icon';
+type ButtonType = 'button' | 'submit' | 'reset';
+type Props = {
+    variant?: Variant;
+    size?: Size;
+    type?: ButtonType;
+    href?: string;
+    external?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+    fullWidth?: boolean;
+    ariaLabel?: string;
+    ariaPressed?: boolean;
+    onclick?: (event: MouseEvent) => void;
+    children?: Snippet;
+    class?: string;
+};
+declare const Button: import("svelte").Component<Props, {}, "">;
+type Button = ReturnType<typeof Button>;
+export default Button;

@@ -1,0 +1,65 @@
+{
+	"name": "@ambar-ui/svelte",
+	"version": "1.0.0",
+	"description": "Beautiful Svelte 5 component library powered by Tailwind CSS v4",
+	"license": "MIT",
+	"author": "Ambar UI",
+	"homepage": "https://ambarui.vercel.app",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mcclaren/ambar-svelte"
+	},
+	"keywords": [
+		"svelte",
+		"svelte5",
+		"sveltekit",
+		"ui",
+		"components",
+		"tailwind",
+		"tailwindcss",
+		"design-system"
+	],
+	"type": "module",
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"peerDependencies": {
+		"svelte": "^5.0.0",
+		"@sveltejs/kit": "^2.0.0"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "node scripts/generate-llms.js && vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"generate:llms": "node scripts/generate-llms.js",
+		"package": "svelte-kit sync && svelte-package -o dist",
+		"prepublishOnly": "npm run package"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/adapter-vercel": "^6.3.3",
+		"@sveltejs/kit": "^2.57.0",
+		"@sveltejs/package": "^2.5.7",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
+		"@tailwindcss/vite": "^4.3.0",
+		"lightningcss": "^1.32.0",
+		"svelte": "^5.55.2",
+		"svelte-check": "^4.4.6",
+		"tailwindcss": "^4.3.0",
+		"typescript": "^6.0.2",
+		"vite": "^8.0.7"
+	}
+}

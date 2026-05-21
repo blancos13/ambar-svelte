@@ -1,0 +1,23 @@
+import type { Snippet } from 'svelte';
+type Variant = 'inline' | 'accent' | 'muted' | 'underline' | 'double' | 'dotted' | 'dashed' | 'wavy' | 'overline' | 'over-under' | 'strike' | 'strike-soft' | 'mark' | 'reveal' | 'pill' | 'button' | 'icon';
+type Size = 'sm' | 'md' | 'lg';
+type IconSide = 'left' | 'right';
+type Motion = 'none' | 'line' | 'scan' | 'dash' | 'pulse' | 'glint' | 'highlight';
+type Props = {
+    href?: string;
+    variant?: Variant;
+    size?: Size;
+    external?: boolean;
+    disabled?: boolean;
+    animated?: boolean;
+    motion?: Motion;
+    icon?: string;
+    iconSide?: IconSide;
+    ariaLabel?: string;
+    onclick?: (event: MouseEvent) => void;
+    children?: Snippet;
+    class?: string;
+};
+declare const Link: import("svelte").Component<Props, {}, "">;
+type Link = ReturnType<typeof Link>;
+export default Link;

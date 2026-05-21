@@ -1,0 +1,21 @@
+import type { Snippet } from 'svelte';
+type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+type Align = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+type Justify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+type Wrap = boolean | 'reverse';
+type Props = {
+    direction?: Direction;
+    gap?: number | string;
+    align?: Align;
+    justify?: Justify;
+    wrap?: Wrap;
+    grow?: boolean;
+    shrink?: boolean;
+    padding?: number | string;
+    as?: string;
+    class?: string;
+    children: Snippet;
+};
+declare const Flex: import("svelte").Component<Props, {}, "">;
+type Flex = ReturnType<typeof Flex>;
+export default Flex;
