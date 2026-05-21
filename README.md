@@ -6,11 +6,11 @@
 
 **45+ components for Svelte 5 + Tailwind CSS v4**
 
-[![npm](https://img.shields.io/npm/v/@ambar-ui/svelte?color=0ea5e9&label=%40mcclaren%2Fambar-ui)](https://www.npmjs.com/package/@ambar-ui/svelte)
+[![npm](https://img.shields.io/npm/v/@ambar-ui/svelte?color=0ea5e9&label=%40ambar-ui%2Fsvelte)](https://www.npmjs.com/package/@ambar-ui/svelte)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Svelte 5](https://img.shields.io/badge/Svelte-5-ff3e00?logo=svelte&logoColor=white)](https://svelte.dev)
 [![Tailwind v4](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Stars](https://img.shields.io/github/stars/ambar-ui/ambar-svelte?style=flat&color=facc15)](https://github.com/ambar-ui/ambar-svelte/stargazers)
+[![Stars](https://img.shields.io/github/stars/blancos13/ambar-svelte?style=flat&color=facc15)](https://github.com/blancos13/ambar-svelte/stargazers)
 
 <br/>
 
@@ -118,6 +118,6 @@ MIT
 
 <div align="center">
 
-Made for the Svelte community · [⭐ Star on GitHub](https://github.com/ambar-ui/ambar-svelte)
+Made for the Svelte community · [⭐ Star on GitHub](https://github.com/blancos13/ambar-svelte)
 
 </div>
