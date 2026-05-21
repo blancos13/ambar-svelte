@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url><loc>https://ambarui.vercel.app/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+
+  <!-- Getting Started -->
+  <url><loc>https://ambarui.vercel.app/components/installation</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/theming</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/guide</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Charts -->
+  <url><loc>https://ambarui.vercel.app/components/charts/bar-chart</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/candlestick</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/donut-chart</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/heatmap</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/line-chart</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/realtime</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/charts/sparkline</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Inputs -->
+  <url><loc>https://ambarui.vercel.app/components/button</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/checkbox</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/input</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/otp-input</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/radio</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/search</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/select</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/slider</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/switch</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/textarea</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Layout -->
+  <url><loc>https://ambarui.vercel.app/components/accordion</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/avatar</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/breadcrumb</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/layout</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/sidebar</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/tabs</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Overlay -->
+  <url><loc>https://ambarui.vercel.app/components/dialog</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/drawer</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/dropdown</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/popover</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/sheet</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/toast</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/tooltip</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Display -->
+  <url><loc>https://ambarui.vercel.app/components/empty-state</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/link</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/list</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/progress</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/skeleton</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/spinner</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ambarui.vercel.app/components/typography</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+</urlset>
